@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,9 +18,17 @@ namespace IT008_Instagram
     /// </summary>
     public partial class MainWindow : Window
     {
+      
         public MainWindow()
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+             Functions.followlist();
+        }
+
+
     }
 }
