@@ -10,9 +10,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Icon\delete.png" />
+    <None Remove="Icon\pen.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Selenium.WebDriver" Version="4.15.0" />
     <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="119.0.6045.10500" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Icon\delete.png" />
+    <Resource Include="Icon\pen.png" />
   </ItemGroup>
 
 </Project>
