@@ -263,7 +263,19 @@ namespace IT008_Instagram
 
         private void rdbFollow_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Show window follow");
+            if (lvDSUser.Items.Count > 0) 
+            {
+                MessageBox.Show("Show window follow");
+                FollowWindow followWindow = new FollowWindow(this);
+                followWindow.Show();
+                this.Hide();
+                rdbFollow.IsChecked = false;
+            }
+            else
+            {
+                MessageBox.Show("Hãy thêm acc clone");
+            }
+            
         }
 
         private void rdbCMT_Checked(object sender, RoutedEventArgs e)
