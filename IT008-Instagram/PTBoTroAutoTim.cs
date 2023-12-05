@@ -34,9 +34,9 @@ namespace IT008_Instagram
 
 
 
-        //phục vụ cho hàm autoTim
+        //phục vụ cho hàm autoTim,autoCmt
         //vào bài post đầu tiên
-        private static void firstPost(ChromeDriver driver,int timeMax)
+        public static void firstPost(ChromeDriver driver,int timeMax)
         {
             int timePostFirst = 0;
             while (timePostFirst < timeMax)
@@ -153,5 +153,7 @@ namespace IT008_Instagram
             
             return true;
         }
+
+
     }
 }
