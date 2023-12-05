@@ -274,10 +274,10 @@ namespace IT008_Instagram
                             Thread.Sleep(2000);
                             FollowUser(link);
                         }
-                        MessageBox.Show("Thành công");
                         driver.Quit();
                     }
                 }
+                MessageBox.Show("Thành công");
             }
 
         }
@@ -321,7 +321,9 @@ namespace IT008_Instagram
                     //break;
 
                     //test xpath khasc
-                    var btnFl = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button"));
+                    //var btnFl = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button"));
+
+                    var btnFl = driver.FindElement(By.CssSelector("._ap3a"));
                     btnFl.Click();
                     break;
                 }
