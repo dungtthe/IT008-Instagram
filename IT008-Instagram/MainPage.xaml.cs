@@ -268,7 +268,8 @@ namespace IT008_Instagram
 
         private void rdbCMT_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Show window cmt");
+            wdCmt wdCmt=new wdCmt(rdbCMT);
+            wdCmt.ShowDialog();
         }
 
         private void rdbTym_Checked(object sender, RoutedEventArgs e)
