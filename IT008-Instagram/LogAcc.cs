@@ -15,7 +15,7 @@ namespace IT008_Instagram
         
         public static void Log(string user, string pass, ChromeDriver driver)
         {
-            driver = new ChromeDriver();
+    
 
             //Vào instagram
             driver.Url = "https://www.instagram.com/";

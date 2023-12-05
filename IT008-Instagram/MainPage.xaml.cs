@@ -273,7 +273,8 @@ namespace IT008_Instagram
 
         private void rdbTym_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Show window tim");
+            wdTim wdTim = new wdTim(rdbTym);
+            wdTim.ShowDialog();
         }
 
         private void rdbCrawlUser_Checked(object sender, RoutedEventArgs e)
