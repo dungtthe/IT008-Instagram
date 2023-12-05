@@ -13,7 +13,7 @@
         WindowStyle="None">
 
 
-    <Grid Name="Follow" Background="White">
+    <Grid Name="grFollow" Background="White">
         <!--Chia layout-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
@@ -33,22 +33,22 @@
                         VerticalAlignment="Center"
                         FontSize="20"
                         FontWeight="Bold"
-                        Text="Danh sách acc clone" />
+                        Text="Danh sách link tài khoản khách hàng" />
 
                     <Button
-                        Name="btnAddLink"
+                        Name="btnAdd"
                         Width="88"
                         Height="45"
                         Margin="30,0,0,0"
                         VerticalAlignment="Center"
                         Background="Aqua"
-                        Click="btnAddLink_Click"
+                        Click="btnAdd_Click"
                         FontSize="20">  
                         <Button.Content>
                             <TextBlock
                                 Foreground="Black"
                                 Text="Nhập"
-                                TextAlignment="Center" />   
+                                TextAlignment="Left" />   
                         </Button.Content>
                     </Button>
                 </StackPanel>
@@ -56,15 +56,80 @@
 
             <Grid Grid.Row="1">
                 <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl Name="lvDSlinkFollow">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <!--  Cách hiển thị của 1 item  -->
+                                <Grid
+                                    Height="30"
+                                    Margin="0,1.25,0,1.25"
+                                    Background="LightGray"> 
 
-                    
-                </ScrollViewer>
-                
+                                    <!--  Grid hiển thị thông tin link acc khách hàng  -->
+                                    <Grid Width="640" HorizontalAlignment="Left">
+                                        <Grid>
+
+                                            <!--  Grid hiển thị link acc -->
+                                            <Grid Height="20">
+                                                <TextBlock
+                                            FontSize="15"
+                                            Text="{Binding Link}"
+                                            TextAlignment="Left" />
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
+
+
+
+                                    <!--  Grid chứa button sửa, xóa  -->
+                                    <Grid Width="60" HorizontalAlignment="Right">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <!--  Grid chứa button sửa  -->
+                                        <Grid Grid.Column="0">
+                                            <Button Name="btnEdit"
+                                            Click="btnEdit_Click"
+                                            Tag="{Binding}">
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="pack://application:,,,/Icon/pen.png" Stretch="Fill" />
+                                                </Button.Background>
+                                            </Button>
+                                        </Grid>
+                                        <!--  Grid chứa button xóa  -->
+                                        <Grid Grid.Column="1">
+                                            <Button Name="btnDelete"
+                                            Click="btnDelete_Click"
+                                    Tag="{Binding}">
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="pack://application:,,,/Icon/delete.png" Stretch="Fill" />
+                                                </Button.Background>
+                                            </Button>
+                                        </Grid>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    </ScrollViewer>
+
             </Grid>
         </Grid>
         
+        
         <!--Vùng các nút start và back-->
         <Grid Grid.Column="1">
+            <TextBlock Text="Auto follow"
+                       VerticalAlignment="Top"
+                       FontSize="20"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"/>
             <Button x:Name="btnBack"
                     Click="btnBack_Click"
                     Content="Back"
@@ -83,5 +148,86 @@
             
 
         </Grid>
+        <!--  popup phục vụ cho button thêm 1 acc clone  -->
+        <Popup
+       Name="puAddClone"
+       Placement="Center"
+       PlacementTarget="{Binding ElementName=btnAdd}">
+            <StackPanel
+           Width="350"
+           Height="200"
+           Orientation="Horizontal">
+                <Grid Width="250" Background="AntiqueWhite">
+                    <Canvas>
+                        <TextBlock Canvas.Top="60" Text="Link tài khoản" />
+                        <TextBox
+                       Name="txtPULink"
+                       Canvas.Left="75"
+                       Canvas.Top="55"
+                       Width="150"
+                       Height="25" />
+                    </Canvas>
+                </Grid>
+                <Grid Background="WhiteSmoke">
+                    <Button
+                   Name="btnPUDongY"
+                   Width="100"
+                   Height="25"
+                   Margin="0,25,0,100"
+                   HorizontalAlignment="Left"
+                   Content="Đồng ý" 
+                   Click="btnPUDongY_Click"/>
+                    <Button
+                   Name="btnPUThoat"
+                   Width="100"
+                   Height="25"
+                   Margin="0,100,0,25"
+                   HorizontalAlignment="Right"
+                   Click="btnPUThoat_Click"
+                   Content="Thoát" />
+                </Grid>
+            </StackPanel>
+        </Popup>
+
+        <!--  popup phục vụ cho button sửa 1 acc clone  -->
+        <Popup
+                Name="puEditClone"
+                Placement="Center"
+                PlacementTarget="{Binding ElementName=btnEdit}">
+            <StackPanel
+                    Width="350"
+                    Height="200"
+                    Orientation="Horizontal">
+                <Grid Width="250" Background="AntiqueWhite">
+                    <Canvas>
+                        <TextBlock Canvas.Top="60" Text="Link" />
+                        <TextBox
+                            Name="txtPULink_Edit"
+                            Canvas.Left="75"
+                            Canvas.Top="55"
+                            Width="150"
+                            Height="25" />
+                    </Canvas>
+                </Grid>
+                <Grid Background="WhiteSmoke">
+                    <Button
+                    Name="btnPUDongY_Edit"
+                    Width="100"
+                    Height="25"
+                    Margin="0,25,0,100"
+                    HorizontalAlignment="Left"
+                    Content="Đồng ý" 
+                    Click="btnPUDongY_Edit_Click"/>
+                    <Button
+                        Name="btnPUThoat_Edit"
+                        Width="100"
+                        Height="25"
+                        Margin="0,100,0,25"
+                        HorizontalAlignment="Right"
+                        Click="btnPUThoat_Edit_Click"
+                        Content="Thoát" />
+                </Grid>
+            </StackPanel>
+        </Popup>
     </Grid>
 </Window>
