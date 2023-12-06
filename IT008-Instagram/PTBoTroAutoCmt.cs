@@ -101,20 +101,15 @@ namespace IT008_Instagram
         //cmt toàn bộ list post của khách hàng
         private static void cmtListPost(ChromeDriver driver,int timeMax)
         {
-            string noiDungcmt = randomCmt();
-
+          
             string urlOld = "";
             string urlNew = "";
-
-
             do
             {
                 //cmt post hiện tại
+                string noiDungcmt = randomCmt();
                 cmtpost(driver, timeMax,noiDungcmt);
                 urlOld = driver.Url;
-
-
-
                 //sang bài post tiếp theo
                 try
                 {
@@ -129,8 +124,6 @@ namespace IT008_Instagram
                 }
             } while (urlOld != urlNew);
         }
-
-
         //
         public static List<string> getDataCmtRandom()
         {
@@ -150,8 +143,6 @@ namespace IT008_Instagram
             }
             return listCmtRandom;
         }
-
-
         //random cmt
         public static string randomCmt()
         {
@@ -169,15 +160,9 @@ namespace IT008_Instagram
                     }
                 }
             }
-
-
             var random = new Random();
             int minValue = 0;
-
             int randomNumber = random.Next(minValue, max);
-
-
-
             return list[randomNumber];
         }
     }
