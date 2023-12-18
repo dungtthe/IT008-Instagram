@@ -293,6 +293,8 @@ namespace IT008_Instagram
         private void rdbCrawlUser_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Show window crawl");
+            wdCrawlUser crawlUserWindow = new wdCrawlUser();
+            crawlUserWindow.ShowDialog();
         }
     }
 

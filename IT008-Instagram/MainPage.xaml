@@ -96,7 +96,11 @@
 
         <!--  buttton thêm  -->
         <Grid Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="23*"/>
+                <ColumnDefinition Width="77*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
                 <TextBlock
                     Margin="4"
                     VerticalAlignment="Center"
