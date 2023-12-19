@@ -30,16 +30,16 @@ namespace IT008_Instagram
         public wdTim(RadioButton rdb)
         {
             InitializeComponent();
-            loadData();
+            //loadData();
             radioButton = rdb;
         }
 
-        void loadData()
-        {
-            lvListLink.ItemsSource = null;
-            listLink = QLKhachHang.getData();
-            lvListLink.ItemsSource = listLink;
-        }
+        //void loadData()
+        //{
+        //    lvListLink.ItemsSource = null;
+        //    listLink = QLKhachHang.getData();
+        //    lvListLink.ItemsSource = listLink;
+        //}
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
@@ -52,11 +52,11 @@ namespace IT008_Instagram
         }
 
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            check = 1;
-            ShowPopup();
-        }
+       //// private void btnAdd_Click(object sender, RoutedEventArgs e)
+       // {
+       //     check = 1;
+       //     ShowPopup();
+       // }
 
         private void btnQuaylai_Click(object sender, RoutedEventArgs e)
         {
@@ -64,85 +64,85 @@ namespace IT008_Instagram
             radioButton.IsChecked=false;
         }
 
-        private void btnPUDongY_Them_Click(object sender, RoutedEventArgs e)
-        {
-            using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.OpenOrCreate, FileAccess.Read))
-            {
-                using (StreamReader sr = new StreamReader(fStream))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
+        //private void btnPUDongY_Them_Click(object sender, RoutedEventArgs e)
+        //{
+        //    using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.OpenOrCreate, FileAccess.Read))
+        //    {
+        //        using (StreamReader sr = new StreamReader(fStream))
+        //        {
+        //            string line;
+        //            while ((line = sr.ReadLine()) != null)
+        //            {
                       
-                        if (line == txtPULink_Them.Text)
-                        {
-                            puAdd.IsOpen = false;
-                            MessageBox.Show("Thêm không thanh công, do khách hàng đã có trong dữ liệu!");
-                            return;
-                        }
-                    }
-                }
-            }
+        //                if (line == txtPULink_Them.Text)
+        //                {
+        //                    puAdd.IsOpen = false;
+        //                    MessageBox.Show("Thêm không thanh công, do khách hàng đã có trong dữ liệu!");
+        //                    return;
+        //                }
+        //            }
+        //        }
+        //    }
 
-            using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.Append, FileAccess.Write))
-            {
-                using (StreamWriter sw = new StreamWriter(fStream))
-                {
-                    string s = txtPULink_Them.Text;
-                    sw.WriteLine(s);
-                }
-            }
+        //    using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.Append, FileAccess.Write))
+        //    {
+        //        using (StreamWriter sw = new StreamWriter(fStream))
+        //        {
+        //            string s = txtPULink_Them.Text;
+        //            sw.WriteLine(s);
+        //        }
+        //    }
 
-            loadData();
-            puAdd.IsOpen = false;
-            MessageBox.Show("Thêm thành công!");
-        }
+        //    loadData();
+        //    puAdd.IsOpen = false;
+        //    MessageBox.Show("Thêm thành công!");
+        //}
 
-        private void btnPUThoat_Them_Click(object sender, RoutedEventArgs e)
-        {
-            puAdd.IsOpen = false;
-        }
+        //private void btnPUThoat_Them_Click(object sender, RoutedEventArgs e)
+        //{
+        //    puAdd.IsOpen = false;
+        //}
 
 
 
         int check;//check=1 là show cho thằng add, check =2 là show cho thằng edit
-        private void ShowPopup()
-        {
-            //xóa dữ liệu trước đó mà popup dữ
-            txtPULink_Them.Text = "";
+        //private void ShowPopup()
+        //{
+        //    //xóa dữ liệu trước đó mà popup dữ
+        //    txtPULink_Them.Text = "";
 
-            txtPULink_Edit.Text = "";
-            // Vô hiệu hóa cửa sổ chính
-            this.IsEnabled = false;
+        //    txtPULink_Edit.Text = "";
+        //    // Vô hiệu hóa cửa sổ chính
+        //    this.IsEnabled = false;
 
-            // Tạo lớp phủ
-            Grid overlay = new Grid() { Background = new SolidColorBrush(Colors.Black), Opacity = 0.5 };
-            grMain.Children.Add(overlay); // Giả sử MainGrid là grid chính của cửa sổ
+        //    // Tạo lớp phủ
+        //    Grid overlay = new Grid() { Background = new SolidColorBrush(Colors.Black), Opacity = 0.5 };
+        //    grMain.Children.Add(overlay); // Giả sử MainGrid là grid chính của cửa sổ
 
-            if (check == 1)
-            {
-                // Hiển thị Popup
-                puAdd.IsOpen = true;
+        //    if (check == 1)
+        //    {
+        //        // Hiển thị Popup
+        //        puAdd.IsOpen = true;
 
-                // Đặt sự kiện khi Popup đóng
-                puAdd.Closed += (s, e) =>
-                {
-                    // Kích hoạt lại cửa sổ chính và xóa lớp phủ
-                    this.IsEnabled = true;
-                    grMain.Children.Remove(overlay);
-                };
-            }
-            else
-            {
-                puEdit.IsOpen = true;
-                puEdit.Closed += (s, e) =>
-                {
-                    this.IsEnabled = true;
-                    grMain.Children.Remove(overlay);
-                };
-            }
+        //        // Đặt sự kiện khi Popup đóng
+        //        puAdd.Closed += (s, e) =>
+        //        {
+        //            // Kích hoạt lại cửa sổ chính và xóa lớp phủ
+        //            this.IsEnabled = true;
+        //            grMain.Children.Remove(overlay);
+        //        };
+        //    }
+        //    else
+        //    {
+        //        puEdit.IsOpen = true;
+        //        puEdit.Closed += (s, e) =>
+        //        {
+        //            this.IsEnabled = true;
+        //            grMain.Children.Remove(overlay);
+        //        };
+        //    }
 
-        }
+        //}
 
 
         string linkSua = "";
@@ -158,57 +158,57 @@ namespace IT008_Instagram
                 if (item != null)
                 {
                     linkSua = item.Link;
-                    ShowPopup();
+                    //ShowPopup();
                 }
             }
         }
-        private void btnPUDongY_Edit_Click(object sender, RoutedEventArgs e)
-        {
-            string linkNew=txtPULink_Edit.Text;
+        //private void btnPUDongY_Edit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    string linkNew=txtPULink_Edit.Text;
 
-            List<string> list = new List<string>();
-            using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.OpenOrCreate, FileAccess.Read))
-            {
-                using (StreamReader sr = new StreamReader(fStream))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        list.Add(line);
-                    }
-                }
-            }
+        //    List<string> list = new List<string>();
+        //    using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.OpenOrCreate, FileAccess.Read))
+        //    {
+        //        using (StreamReader sr = new StreamReader(fStream))
+        //        {
+        //            string line;
+        //            while ((line = sr.ReadLine()) != null)
+        //            {
+        //                list.Add(line);
+        //            }
+        //        }
+        //    }
 
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i] == linkSua)
-                {
-                    list[i] = linkNew;
-                    break;
-                }
-            }
+        //    for (int i = 0; i < list.Count; i++)
+        //    {
+        //        if (list[i] == linkSua)
+        //        {
+        //            list[i] = linkNew;
+        //            break;
+        //        }
+        //    }
 
-            try
-            {
-                File.Delete("listKHTim.txt");
-            }
-            catch { }
+        //    try
+        //    {
+        //        File.Delete("listKHTim.txt");
+        //    }
+        //    catch { }
 
-            using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.Append, FileAccess.Write))
-            {
-                using (StreamWriter sw = new StreamWriter(fStream))
-                {
-                    foreach (string s in list)
-                    {
-                        sw.WriteLine(s);
-                    }
-                }
-            }
+        //    using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.Append, FileAccess.Write))
+        //    {
+        //        using (StreamWriter sw = new StreamWriter(fStream))
+        //        {
+        //            foreach (string s in list)
+        //            {
+        //                sw.WriteLine(s);
+        //            }
+        //        }
+        //    }
 
-            loadData();
-            puEdit.IsOpen = false;
-            MessageBox.Show("Sửa link khách hàng thành công!");
-        }
+        //    loadData();
+        //    puEdit.IsOpen = false;
+        //    MessageBox.Show("Sửa link khách hàng thành công!");
+        //}
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
@@ -253,13 +253,13 @@ namespace IT008_Instagram
             }
 
             MessageBox.Show("Xóa thành công!");
-            loadData();
+            //loadData();
         }
 
-        private void btnPUThoat_Edit_Click(object sender, RoutedEventArgs e)
-        {
-            puEdit.IsOpen = false;
-        }
+        //private void btnPUThoat_Edit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    puEdit.IsOpen = false;
+        //}
 
 
 
@@ -299,7 +299,9 @@ namespace IT008_Instagram
             MessageBox.Show("Done!");
         }
 
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
 
-        
+        }
     }
 }

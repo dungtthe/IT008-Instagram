@@ -4,261 +4,304 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:IT008_Instagram"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="wdTim"
-    Width="700"
-    Height="540"
+    Width="600"
+    Height="500"
     AllowsTransparency="True"
+    Background="Transparent"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+    <Grid Name="grFollow" Background="White">
 
-    <Grid Name="grMain" Background="White">
         <!--  Chia layout  -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="25" />
-            <RowDefinition Height="150" />
+            <RowDefinition Height="22" />
+            <RowDefinition Height="45" />
+            <RowDefinition />
             <RowDefinition Height="40" />
-            <RowDefinition Height="325" />
         </Grid.RowDefinitions>
 
-        <!--  Nút exit và minimize  -->
-        <Grid>
-            <StackPanel
-                Background="Aqua"
-                FlowDirection="RightToLeft"
-                Orientation="Horizontal">
+        <Grid Background="#DFD7BF">
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                FontSize="13"
+                FontWeight="Bold"
+                Text="Auto tim" />
+            <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
 
+                <!--  Nút exit  -->
                 <Button
                     x:Name="btnX"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="#FFE61C1C"
+                    Grid.Column="1"
+                    BorderThickness="0"
                     Click="btnX_Click"
-                    Content="x"
+                    Content="X"
                     Cursor="Hand"
-                    FontSize="15"
-                    Foreground="WhiteSmoke" />
+                    FontFamily="Montserrat"
+                    FontSize="16"
+                    Foreground="#623b00">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DBC4AD" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#E4D4C5" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
 
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                Width="18"
+                                Height="18"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="9">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!--  Nút minimize  -->
                 <Button
-                    Name="btnMinimize"
-                    HorizontalAlignment="Center"
-                    VerticalAlignment="Center"
-                    Background="blue"
+                    x:Name="btnMinimize"
+                    Grid.Column="1"
+                    BorderThickness="0"
                     Click="btnMinimize_Click"
                     Content="-"
                     Cursor="Hand"
-                    FontSize="20"
-                    Foreground="WhiteSmoke" />
+                    FontFamily="Montserrat"
+                    FontSize="16"
+                    Foreground="#623b00">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#DBC4AD" />
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#E4D4C5" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border
+                                Width="18"
+                                Height="18"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="9">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
             </StackPanel>
         </Grid>
 
-        <!--  chứa btn quay lại và start  -->
+        <!--  Nút thêm  -->
         <Grid Grid.Row="1">
-            <StackPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel
+                Grid.ColumnSpan="2"
+                Margin="4,0,0,0"
+                VerticalAlignment="Center"
+                Orientation="Horizontal">
                 <TextBlock
-                    Margin="4"
-                    FontSize="30"
-                    FontWeight="Bold"
-                    Text="Auto Tim"
-                    TextAlignment="Center" />
-
-                <Grid Height="130">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <!--  btn start  -->
-                    <Grid Grid.Column="0">
-                        <Button
-                            Name="btnStart"
-                            Width="120"
-                            Height="50"
-                            Click="btnStart_Click"
-                            Content="Start"
-                            FontSize="20" />
-                    </Grid>
-                    <!--  btn quay lại  -->
-                    <Grid Grid.Column="1">
-                        <Button
-                            Name="btnQuaylai"
-                            Width="120"
-                            Height="50"
-                            Click="btnQuaylai_Click"
-                            Content="Quay lại"
-                            FontSize="20" />
-                    </Grid>
-                </Grid>
-            </StackPanel>
-        </Grid>
-
-        <!--  buttton thêm  -->
-        <Grid Grid.Row="2">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock
-                    Margin="4"
+                    Margin="0,0,0,0"
                     VerticalAlignment="Center"
                     FontSize="20"
-                    FontWeight="Bold"
-                    Text="Danh sách khách hàng" />
+                    FontWeight="DemiBold"
+                    Text="Danh sách tài khoản khách hàng" />
 
+                <!--  Nút thêm  -->
                 <Button
                     Name="btnAdd"
-                    Width="88"
-                    Height="40"
+                    Width="85"
+                    Height="30"
                     Margin="30,0,0,0"
-                    VerticalAlignment="Center"
-                    Background="Aqua"
-                    Click="btnAdd_Click"
-                    FontSize="20">
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top"
+                    materialDesign:ButtonAssist.CornerRadius="10"
+                    Background="#DFD7BF"
+                    FontFamily="arial"
+                    FontSize="17"
+                    FontWeight="Bold"
+                    Foreground="#623b00">
                     <Button.Content>
-                        <TextBlock
-                            Foreground="Black"
-                            Text="Thêm"
-                            TextAlignment="Center" />
+                        <StackPanel Orientation="Horizontal">
+                            <materialDesign:PackIcon
+                                Width="17"
+                                Height="17"
+                                Margin="0,0,0,0"
+                                VerticalAlignment="Center"
+                                Kind="PlusCircleOutline" />
+                            <TextBlock Margin="5,0,0,0" Text="Thêm" />
+                        </StackPanel>
                     </Button.Content>
                 </Button>
             </StackPanel>
         </Grid>
 
-        <!--  danh sách link khách hàng  -->
-        <Grid Grid.Row="3">
-            <Grid>
-                <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-                    <ItemsControl Name="lvListLink">
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <!--  cách thể hiện của 1 item  -->
-                                <Grid
-                                    Height="30"
-                                    Margin="0,1.25,0,1.25"
-                                    Background="LightGray">
-                                    <Grid Width="640" HorizontalAlignment="Left">
-                                        <TextBlock Text="{Binding Link}" />
-                                    </Grid>
-                                    <Grid Width="60" HorizontalAlignment="Right">
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition />
-                                            <ColumnDefinition />
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0">
-                                            <Button
-                                                Name="btnEdit"
-                                                Click="btnEdit_Click"
-                                                Tag="{Binding}">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="pack://application:,,,/Icon/pen.png" Stretch="Fill" />
-                                                </Button.Background>
-                                            </Button>
-                                        </Grid>
+        <!--  List view  -->
+        <Grid Grid.Row="2">
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+                <ListView Name="lvDSlinkFollow">
+                    <ListView.View>
+                        <GridView>
+                            <!--  ID  -->
+                            <GridViewColumn Width="100" Header="STT">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Margin="16,5.5,0,0"
+                                            FontSize="17"
+                                            Text="{Binding}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
-                                        <Grid Grid.Column="1">
-                                            <Button
-                                                Name="btnDelete"
-                                                Click="btnDelete_Click"
-                                                Tag="{Binding}">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="pack://application:,,,/Icon/delete.png" Stretch="Fill" />
-                                                </Button.Background>
-                                            </Button>
-                                        </Grid>
-                                    </Grid>
-                                </Grid>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <StackPanel />
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                    </ItemsControl>
-                </ScrollViewer>
-            </Grid>
+                            <!--  Tên tài khoản  -->
+                            <GridViewColumn Width="600" Header="Link tài khoản khách hàng">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                            Margin="16,5.5,0,0"
+                                            FontSize="17"
+                                            Text="{Binding}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </ScrollViewer>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <!--  Nút quay lại  -->
+            <Button
+                x:Name="btnBack"
+                Width="90"
+                Margin="10,0,0,0"
+                HorizontalAlignment="Left"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                Background="Red"
+                Click="btnBack_Click"
+                Content="Quay lại" />
+            <!--  Nút chạy  -->
+            <Button
+                x:Name="btnStart"
+                Width="90"
+                Margin="500,0,10,0"
+                materialDesign:ButtonAssist.CornerRadius="20"
+                Background="SaddleBrown"
+                Click="btnStart_Click"
+                Content="Chạy" />
         </Grid>
 
 
 
-        <!--  popup phục vụ cho button thêm 1 khách hàng  -->
-        <Popup
-            Name="puAdd"
-            Placement="Center"
-            PlacementTarget="{Binding ElementName=btnAdd}">
-            <StackPanel
-                Width="350"
-                Height="100"
-                Orientation="Horizontal">
-                <Grid Width="250" Background="AntiqueWhite">
-                    <Canvas>
-                        <TextBlock Canvas.Top="40" Text="Link" />
-                        <TextBox
-                            Name="txtPULink_Them"
-                            Canvas.Left="30"
-                            Canvas.Top="37"
-                            Width="200"
-                            Height="25" />
-                    </Canvas>
-                </Grid>
-                <Grid Background="WhiteSmoke">
-                    <Button
-                        Name="btnPUDongY_Them"
-                        Width="100"
-                        Height="25"
-                        Margin="0,10,0,50"
-                        HorizontalAlignment="Left"
-                        Click="btnPUDongY_Them_Click"
-                        Content="Đồng ý" />
-                    <Button
-                        Name="btnPUThoat_Them"
-                        Width="100"
-                        Height="25"
-                        Margin="0,50,0,10"
-                        HorizontalAlignment="Right"
-                        Click="btnPUThoat_Them_Click"
-                        Content="Thoát" />
-                </Grid>
-            </StackPanel>
-        </Popup>
+        <!--  popup phục vụ cho button thêm 1 acc clone  -->
+        <!--<Popup
+        Name="puAddClone"
+        Placement="Center"
+        PlacementTarget="{Binding ElementName=btnAdd}">
+        <StackPanel
+            Width="350"
+            Height="200"
+            Orientation="Horizontal">
+            <Grid Width="250" Background="AntiqueWhite">
+                <Canvas>
+                    <TextBlock Canvas.Top="60" Text="Link tài khoản" />
+                    <TextBox
+                        Name="txtPULink"
+                        Canvas.Left="75"
+                        Canvas.Top="55"
+                        Width="150"
+                        Height="25" />
+                </Canvas>
+            </Grid>
+            <Grid Background="WhiteSmoke">
+                <Button
+                    Name="btnPUDongY"
+                    Width="100"
+                    Height="25"
+                    Margin="0,25,0,100"
+                    HorizontalAlignment="Left"
+                    Click="btnPUDongY_Click"
+                    Content="Đồng ý" />
+                <Button
+                    Name="btnPUThoat"
+                    Width="100"
+                    Height="25"
+                    Margin="0,100,0,25"
+                    HorizontalAlignment="Right"
+                    Click="btnPUThoat_Click"
+                    Content="Thoát" />
+            </Grid>
+        </StackPanel>
+    </Popup>
 
-        <!--  popup phục vụ cho việc sửa link của khách hàng  -->
-        <Popup
-            Name="puEdit"
-            Placement="Center"
-            PlacementTarget="{Binding ElementName=btnEdit}">
-            <StackPanel
-                Width="350"
-                Height="100"
-                Orientation="Horizontal">
-                <Grid Width="250" Background="AntiqueWhite">
-                    <Canvas>
-                        <TextBlock Canvas.Top="40" Text="Link" />
-                        <TextBox
-                            Name="txtPULink_Edit"
-                            Canvas.Left="30"
-                            Canvas.Top="37"
-                            Width="200"
-                            Height="25" />
-                    </Canvas>
-                </Grid>
-                <Grid Background="WhiteSmoke">
-                    <Button
-                        Name="btnPUDongY_Edit"
-                        Width="100"
-                        Height="25"
-                        Margin="0,10,0,50"
-                        HorizontalAlignment="Left"
-                        Click="btnPUDongY_Edit_Click"
-                        Content="Đồng ý" />
-                    <Button
-                        Name="btnPUThoat_Edit"
-                        Width="100"
-                        Height="25"
-                        Margin="0,50,0,10"
-                        HorizontalAlignment="Right"
-                        Click="btnPUThoat_Edit_Click"
-                        Content="Thoát" />
-                </Grid>
-            </StackPanel>
-        </Popup>
-
+        -->
+        <!--  popup phục vụ cho button sửa 1 acc clone  -->
+        <!--
+    <Popup
+        Name="puEditClone"
+        Placement="Center"
+        PlacementTarget="{Binding ElementName=btnEdit}">
+        <StackPanel
+            Width="350"
+            Height="200"
+            Orientation="Horizontal">
+            <Grid Width="250" Background="AntiqueWhite">
+                <Canvas>
+                    <TextBlock Canvas.Top="60" Text="Link" />
+                    <TextBox
+                        Name="txtPULink_Edit"
+                        Canvas.Left="75"
+                        Canvas.Top="55"
+                        Width="150"
+                        Height="25" />
+                </Canvas>
+            </Grid>
+            <Grid Background="WhiteSmoke">
+                <Button
+                    Name="btnPUDongY_Edit"
+                    Width="100"
+                    Height="25"
+                    Margin="0,25,0,100"
+                    HorizontalAlignment="Left"
+                    Click="btnPUDongY_Edit_Click"
+                    Content="Đồng ý" />
+                <Button
+                    Name="btnPUThoat_Edit"
+                    Width="100"
+                    Height="25"
+                    Margin="0,100,0,25"
+                    HorizontalAlignment="Right"
+                    Click="btnPUThoat_Edit_Click"
+                    Content="Thoát" />
+            </Grid>
+        </StackPanel>
+    </Popup>-->
     </Grid>
+
 </Window>
