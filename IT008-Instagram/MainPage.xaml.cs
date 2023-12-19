@@ -258,7 +258,8 @@ namespace IT008_Instagram
 
         private void rdbCrawlListPost_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Show window CrawlListPost");
+            wdCrawlListPost crawlListPost = new wdCrawlListPost();
+            crawlListPost.ShowDialog();
         }
 
         private void rdbFollow_Checked(object sender, RoutedEventArgs e)
@@ -292,7 +293,6 @@ namespace IT008_Instagram
 
         private void rdbCrawlUser_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Show window crawl");
             wdCrawlUser crawlUserWindow = new wdCrawlUser();
             crawlUserWindow.ShowDialog();
         }

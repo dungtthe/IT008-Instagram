@@ -212,13 +212,30 @@ namespace IT008_Instagram
                     {
                         try
                         {
-                            IList<IWebElement> imgElementDiv = driver.FindElements(By.CssSelector("div[class='_aagu _aato']"));
-                            foreach (IWebElement imgElement in imgElementDiv)
+
+                            // _aamj _acvz _acnc _acng
+                            var numberOfImageElement1 = driver.FindElement(By.CssSelector("div[class='_aamj _acvz _acnc _acng']"));
+                            var numberOfImageElement2 = numberOfImageElement1.FindElements(By.XPath("*"));
+
+                            int numberOfImage = numberOfImageElement2.Count;
+
+                            for (int i = 0; i < numberOfImage; i++)
                             {
+                                int nchild = 3;
                                 ++imgCount;
-                                var imgElementImage = imgElement.FindElement(By.TagName("img"));
-                                string imgDescription = imgElementImage.GetAttribute("alt");
-                                string imgSource = imgElementImage.GetAttribute("src");
+                                if (i == 0) nchild = 2;
+                                var zoned = driver.FindElement(By.ClassName("_aamn"));
+
+                                IWebElement imageElementli;
+                                if (i == numberOfImage - 1)
+                                {
+                                   imageElementli = zoned.FindElement(By.CssSelector($"ul[class='_acay'] > li:last-child"));
+                                }
+                                else imageElementli = zoned.FindElement(By.CssSelector($"ul[class='_acay'] > li:nth-child({nchild})"));
+                                var imageElement = imageElementli.FindElement(By.TagName("img"));
+                                string imgDescription = imageElement.GetAttribute("alt");
+                                string imgSource = imageElement.GetAttribute("src");
+                                //download and write img
                                 using (var client = new HttpClient())
                                 {
                                     using (var s = client.GetStreamAsync(imgSource))
@@ -230,7 +247,13 @@ namespace IT008_Instagram
                                     }
                                 }
                                 sw.WriteLine($"{imgCount}\t{imgSource}\t{imgDescription}");
+
+                                //navigate to next img
+                                var btnNext = driver.FindElement(By.CssSelector("button[aria-label='Next']"));
+                                btnNext.Click();
+                                Thread.Sleep(1000);
                             }
+                           
                             
                         }
                         catch

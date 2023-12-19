@@ -1,0 +1,140 @@
+﻿<Window x:Class="IT008_Instagram.wdCrawlListPost"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IT008_Instagram"
+        mc:Ignorable="d"
+        FontSize="20"
+        Title="wdCrawlListPost" Height="540" Width="700">
+    <Grid Name="grMain" Background="White">
+        <!--  Chia layout  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Nút exit và minimize  -->
+        <Grid Grid.Row="0">
+            <StackPanel
+            Background="LightGray"
+            FlowDirection="RightToLeft"
+            Orientation="Horizontal">
+
+                <Button
+                x:Name="btnX"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="#FFE61C1C"
+                Click="btnX_Click"
+                Content="x"
+                Cursor="Hand"
+                FontSize="15"
+                Foreground="WhiteSmoke" />
+
+                <Button
+                Name="btnMinimize"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Background="Aquamarine"
+                Click="btnMinimize_Click"
+                Content="-"
+                Cursor="Hand"
+                FontSize="20"
+                Foreground="Black" />
+            </StackPanel>
+        </Grid>
+
+        <!--  buttton thêm  -->
+        <Grid Grid.Row="1">
+           
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Top"
+                        Margin="15,15,0,0">
+                <TextBlock
+                VerticalAlignment="Center"
+                FontSize="20"
+                FontWeight="Bold"
+                Text="Nhập link bài post:" />
+                <TextBox Text="{Binding Link}"
+                         Width="350"
+                         Margin="10,0,0,0"/>
+                <Button
+                Name="btnAdd"
+                Width="88"
+                Height="40"
+                Margin="30,0,0,0"
+                VerticalAlignment="Center"
+                Background="LightGray"
+                Click="btnAdd_Click"
+                FontSize="20">
+                    <Button.Content>
+                        <TextBlock
+                        Foreground="Black"
+                        Text="Thêm"
+                        TextAlignment="Center" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+        <StackPanel Orientation="Horizontal"
+            Grid.Row="2">
+            <TextBlock Text="Destination folder:"
+               FontWeight="Bold"
+               Margin="15,0,0,0"
+               VerticalAlignment="Center"/>
+            <TextBox Text="{Binding SavedPath}"
+                     Width="355"/>
+            <Button Content="Choose Path"
+            Margin="15,0,0,0"
+            Background="LightGray"
+            Foreground="Black"
+            BorderBrush="Black"
+            x:Name="btnChoosePath"
+            Click="btnChoosePath_Click"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="3">
+            <TextBlock Text="Danh sách post:"
+                       FontWeight="Bold"
+                       Margin="15,0,0,0"
+                       VerticalAlignment="Center"/>
+            <Button Content="Delete All"
+                    Margin="15,0,0,0"
+                    Background="LightGray"
+                    Foreground="Black"
+                    BorderBrush="Black"
+                    x:Name="btnDelete"
+                    Click="btnDelete_Click"/>
+        </StackPanel>
+        
+        <ListBox x:Name="lbPost"
+                 Grid.Row="4"
+                 Margin="30,10,30,50"
+                 ItemsSource="{Binding PostList, UpdateSourceTrigger=PropertyChanged}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    
+                    <TextBlock Text="{Binding}"
+                               FontSize="13"
+                               Foreground="Black"/>
+                    
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Start"
+                Grid.Row="4"
+                VerticalAlignment="Bottom"
+                Width="200"
+                Margin="0,0,0,10"
+                x:Name="btnStart"
+                Click="btnStart_Click"/>
+
+
+
+
+    </Grid>
+</Window>
