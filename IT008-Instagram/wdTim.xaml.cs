@@ -58,12 +58,6 @@ namespace IT008_Instagram
        //     ShowPopup();
        // }
 
-        private void btnQuaylai_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-            radioButton.IsChecked=false;
-        }
-
         //private void btnPUDongY_Them_Click(object sender, RoutedEventArgs e)
         //{
         //    using (FileStream fStream = new FileStream("listKHTim.txt", FileMode.OpenOrCreate, FileAccess.Read))
@@ -301,7 +295,8 @@ namespace IT008_Instagram
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
+            radioButton.IsChecked = false;
         }
     }
 }

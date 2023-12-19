@@ -342,11 +342,13 @@ namespace IT008_Instagram
 
         private void btnX_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
 
         }
 
         private void btnMinimize_Click(object sender, RoutedEventArgs e)
         {
+            WindowState = WindowState.Minimized;
 
         }
     }

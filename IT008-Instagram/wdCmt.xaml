@@ -246,7 +246,7 @@
                             </GridViewColumn>
 
                             <!--  Tên tài khoản  -->
-                            <GridViewColumn Width="600" Header="Link tài khoản khách hàng">
+                            <GridViewColumn Width="Auto" Header="Link tài khoản khách hàng">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
