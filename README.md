@@ -14,7 +14,7 @@
 
 - Vũ Tuấn Hải - [GitHub](https://github.com/vutuanhai237)
 
-> # Video demo: Link to youtube video
+> # Video demo: https://www.youtube.com/watch?v=H097aHzNrEk
 
 > # Description:
 **IGHelper**, a robust desktop application crafted using C#, Selenium, and WPF, designed to facilitate complicated interactions with Instagram. Our key features includes:
