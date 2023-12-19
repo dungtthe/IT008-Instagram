@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,31 @@ namespace IT008_Instagram
         public wdThemMotComment()
         {
             InitializeComponent();
+        }
+
+        private void btnDongY_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtThemCmtRandom.Text == "")
+            {
+                MessageBox.Show("Cmt không được rỗng!");
+            }
+            else
+            {
+                using (FileStream fStream = new FileStream("listCmtRandom.txt", FileMode.Append, FileAccess.Write))
+                {
+                    using (StreamWriter sw = new StreamWriter(fStream))
+                    {
+                        sw.WriteLine(txtThemCmtRandom.Text);
+                    }
+                }
+                MessageBox.Show("Thêm thành công!");
+                Close();
+            }
+        }
+
+        private void btnHuy_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

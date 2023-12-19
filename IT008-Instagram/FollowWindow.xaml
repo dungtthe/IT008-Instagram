@@ -144,7 +144,8 @@
                     FontFamily="arial"
                     FontSize="17"
                     FontWeight="Bold"
-                    Foreground="#623b00">
+                    Foreground="#623b00"
+                    Click="btnAdd_Click">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon
@@ -201,7 +202,10 @@
                                                 BorderThickness="0"
                                                 Cursor="Hand"
                                                 FontFamily="Montserrat"
-                                                FontSize="16">
+                                                FontSize="16"
+                                                Name="btnEdit"
+                                                Click="btnEdit_Click"
+                                                Tag="{Binding}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
                                                         <Setter Property="Background" Value="#DBC4AD" />
@@ -236,7 +240,10 @@
                                                 BorderThickness="0"
                                                 Cursor="Hand"
                                                 FontFamily="Montserrat"
-                                                FontSize="16">
+                                                FontSize="16"
+                                                Name="btnDelete"
+                                                Click="btnDelete_Click"
+                                                Tag="{Binding}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
                                                         <Setter Property="Background" Value="#DBC4AD" />

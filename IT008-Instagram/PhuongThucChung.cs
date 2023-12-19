@@ -4,41 +4,22 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.Windows;
 
 namespace IT008_Instagram
 {
-    /// <summary>
-    /// Interaction logic for wdSuaKhachHang.xaml
-    /// </summary>
-    public partial class wdSuaKhachHang : Window
+    public class PhuongThucChung
     {
-        string linkSua;
-        string fileKH;
-        public wdSuaKhachHang(string link, string fileKH)
+        public static void DeleteKH(object sender, RoutedEventArgs e,string fileKH)
         {
-            InitializeComponent();
-            linkSua = link;
-            this.fileKH = fileKH;
-            txtLink.Text = linkSua;
-        }
-
-        private void btnHuy_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
-
-        private void btnDongY_Click(object sender, RoutedEventArgs e)
-        {
-            string linkNew = "";
-            linkNew = txtLink.Text;
+            var button = sender as Button;
+            string tkXoa = "";
+            if (button != null)
+            {
+                var item = button.Tag as KhachHang;
+                tkXoa = item.Link;
+            }
 
             List<string> list = new List<string>();
             using (FileStream fStream = new FileStream(fileKH, FileMode.OpenOrCreate, FileAccess.Read))
@@ -53,14 +34,7 @@ namespace IT008_Instagram
 
                 }
             }
-            for (int i = 0; i < list.Count; i++)
-            {
-                if (list[i] == linkSua)
-                {
-                    list[i] = linkNew;
-                    break;
-                }
-            }
+            list.Remove(tkXoa);
 
             try
             {
@@ -79,8 +53,6 @@ namespace IT008_Instagram
                 }
             }
 
-            MessageBox.Show("Sửa thông tin khách hàng thành công!");
-            Close();
         }
     }
 }

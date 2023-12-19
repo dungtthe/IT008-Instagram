@@ -36,7 +36,7 @@ namespace IT008_Instagram
         void loadData()
         {
             lvListLink.ItemsSource = null;
-            listLink = QLKhachHang.getDataCmt();
+            listLink = QLKhachHang.getDataKH("listKHCmt.txt");
             lvListLink.ItemsSource = listLink;
         }
 
@@ -94,209 +94,17 @@ namespace IT008_Instagram
             radioButton.IsChecked = false;
         }
 
-        //private void btnAdd_Click(object sender, RoutedEventArgs e)
-        //{
-        //    check = 1;
-        //    ShowPopup();
-        //}
 
-        int check;//check=1 là show cho thằng add, check =2 là show cho thằng edit
-        //private void ShowPopup()
-        //{
-        //    //xóa dữ liệu trước đó mà popup dữ
-        //    txtPULink_Them.Text = "";
-
-        //    txtPULink_Edit.Text = "";
-        //    // Vô hiệu hóa cửa sổ chính
-        //    this.IsEnabled = false;
-
-        //    // Tạo lớp phủ
-        //    Grid overlay = new Grid() { Background = new SolidColorBrush(Colors.Black), Opacity = 0.5 };
-        //    grMain.Children.Add(overlay); // Giả sử MainGrid là grid chính của cửa sổ
-
-        //    if (check == 1)
-        //    {
-        //        // Hiển thị Popup
-        //        puAdd.IsOpen = true;
-
-        //        // Đặt sự kiện khi Popup đóng
-        //        puAdd.Closed += (s, e) =>
-        //        {
-        //            // Kích hoạt lại cửa sổ chính và xóa lớp phủ
-        //            this.IsEnabled = true;
-        //            grMain.Children.Remove(overlay);
-        //        };
-        //    }
-        //    else
-        //    {
-        //        puEdit.IsOpen = true;
-        //        puEdit.Closed += (s, e) =>
-        //        {
-        //            this.IsEnabled = true;
-        //            grMain.Children.Remove(overlay);
-        //        };
-        //    }
-
-        //}
-
-
-        //private void btnPUDongY_Them_Click(object sender, RoutedEventArgs e)
-        //{
-        //    using (FileStream fStream = new FileStream("listKHCmt.txt", FileMode.OpenOrCreate, FileAccess.Read))
-        //    {
-        //        using (StreamReader sr = new StreamReader(fStream))
-        //        {
-        //            string line;
-        //            while ((line = sr.ReadLine()) != null)
-        //            {
-
-        //                if (line == txtPULink_Them.Text)
-        //                {
-        //                    puAdd.IsOpen = false;
-        //                    MessageBox.Show("Thêm không thanh công, do khách hàng đã có trong dữ liệu!");
-        //                    return;
-        //                }
-        //            }
-        //        }
-        //    }
-
-        //    using (FileStream fStream = new FileStream("listKHCmt.txt", FileMode.Append, FileAccess.Write))
-        //    {
-        //        using (StreamWriter sw = new StreamWriter(fStream))
-        //        {
-        //            string s = txtPULink_Them.Text;
-        //            sw.WriteLine(s);
-        //        }
-        //    }
-
-        //    loadData();
-        //    puAdd.IsOpen = false;
-        //    MessageBox.Show("Thêm thành công!");
-        //}
-
-        //private void btnPUThoat_Them_Click(object sender, RoutedEventArgs e)
-        //{
-        //    puAdd.IsOpen = false;
-        //}
-
-
-        string linkSua = "";
-        //private void btnEdit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    check = 2;
-
-        //    var button = sender as Button;
-        //    if (button != null)
-        //    {
-        //        var item = button.Tag as KhachHang;
-
-        //        if (item != null)
-        //        {
-        //            linkSua = item.Link;
-        //            ShowPopup();
-        //        }
-        //    }
-        //}
-        //private void btnPUDongY_Edit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    string linkNew = txtPULink_Edit.Text;
-
-        //    List<string> list = new List<string>();
-        //    using (FileStream fStream = new FileStream("listKHCmt.txt", FileMode.OpenOrCreate, FileAccess.Read))
-        //    {
-        //        using (StreamReader sr = new StreamReader(fStream))
-        //        {
-        //            string line;
-        //            while ((line = sr.ReadLine()) != null)
-        //            {
-        //                list.Add(line);
-        //            }
-        //        }
-        //    }
-
-        //    for (int i = 0; i < list.Count; i++)
-        //    {
-        //        if (list[i] == linkSua)
-        //        {
-        //            list[i] = linkNew;
-        //            break;
-        //        }
-        //    }
-
-        //    try
-        //    {
-        //        File.Delete("listKHCmt.txt");
-        //    }
-        //    catch { }
-
-        //    using (FileStream fStream = new FileStream("listKHCmt.txt", FileMode.Append, FileAccess.Write))
-        //    {
-        //        using (StreamWriter sw = new StreamWriter(fStream))
-        //        {
-        //            foreach (string s in list)
-        //            {
-        //                sw.WriteLine(s);
-        //            }
-        //        }
-        //    }
-
-        //    loadData();
-        //    puEdit.IsOpen = false;
-        //    MessageBox.Show("Sửa link khách hàng thành công!");
-        //}
-
+        //xóa 1 kh
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
-            string linkXoa = "";
-            if (button != null)
-            {
-                var item = button.Tag as KhachHang;
-                linkXoa = item.Link;
-            }
-
-            List<string> list = new List<string>();
-            using (FileStream fStream = new FileStream("listKHCmt.txt", FileMode.OpenOrCreate, FileAccess.Read))
-            {
-                using (StreamReader sr = new StreamReader(fStream))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        list.Add(line);
-                    }
-
-                }
-            }
-            list.Remove(linkXoa);
-
-            try
-            {
-                File.Delete("listKHCmt.txt");
-            }
-            catch { }
-
-            using (FileStream fStream = new FileStream("listKHCmt.txt", FileMode.Append, FileAccess.Write))
-            {
-                using (StreamWriter sw = new StreamWriter(fStream))
-                {
-                    foreach (string s in list)
-                    {
-                        sw.WriteLine(s);
-                    }
-                }
-            }
-
-            MessageBox.Show("Xóa thành công!");
+            PhuongThucChung.DeleteKH(sender, e, "listKHCmt.txt");
             loadData();
         }
 
-        //private void btnPUThoat_Edit_Click(object sender, RoutedEventArgs e)
-        //{
-        //    puEdit.IsOpen = false;
-        //}
+  
 
-
+        //load lại danh sách cmt để random
         private void loadCmtRandom()
         {
             cboListCmt.ItemsSource = null;
@@ -304,12 +112,9 @@ namespace IT008_Instagram
             cboListCmt.ItemsSource = listCmtRandom;
         }
 
-        //private void btnThemCmtRandom_Click(object sender, RoutedEventArgs e)
-        //{
-        //    grbtnThem.Visibility = Visibility.Visible;
-        //    btnXoaCmtRandom.Visibility = Visibility.Collapsed;
-        //}
 
+
+        //xóa cmt random đang chọn
         private void btnXoaCmtRandom_Click(object sender, RoutedEventArgs e)
         {
 
@@ -361,39 +166,40 @@ namespace IT008_Instagram
             }
         }
 
+
+        //thêm 1 cmt để random
         private void btnThemCmtRandom_Click(object sender, RoutedEventArgs e)
         {
-
+            wdThemMotComment wdThemMotComment = new wdThemMotComment();
+            wdThemMotComment.ShowDialog();
+            loadCmtRandom();
         }
 
-        //private void btnDongYThem1CMT_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (txtThemCmtRandom.Text == "")
-        //    {
-        //        MessageBox.Show("Cmt không được rỗng!");
-        //    }
-        //    else
-        //    {
-
-        //        using (FileStream fStream = new FileStream("listCmtRandom.txt", FileMode.Append, FileAccess.Write))
-        //        {
-        //            using (StreamWriter sw = new StreamWriter(fStream))
-        //            {
-        //                sw.WriteLine(txtThemCmtRandom.Text);
-        //            }
-        //        }
-        //        loadCmtRandom();
-        //        MessageBox.Show("Thêm thành công!");
-        //        txtThemCmtRandom.Text = "";
-        //        grbtnThem.Visibility = Visibility.Collapsed;
-        //        btnXoaCmtRandom.Visibility = Visibility.Visible;
-        //    }
-        //}
 
 
+        //edit link của kh
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                var item = button.Tag as KhachHang;
 
+                if (item != null)
+                {
+                    wdSuaKhachHang wdSuaKhachHang = new wdSuaKhachHang(item.Link, "listKHCmt.txt");
+                    wdSuaKhachHang.ShowDialog();
 
+                    loadData();
+                }
+            }
+        }
 
-
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            wdThemKhachHang wdThemKhachHang = new wdThemKhachHang("listKHCmt.txt");
+            wdThemKhachHang.ShowDialog();
+            loadData();
+        }
     }
 }

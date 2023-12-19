@@ -143,27 +143,6 @@
                     Content="Thêm"
                     FontSize="14" />
 
-                <!--  nhấn button thêm thì hiện ra  -->
-                <!--
-                <Grid
-                    Name="grbtnThem"
-                    Height="30"
-                    Visibility="Collapsed">
-                    <TextBox
-                        Name="txtThemCmtRandom"
-                        Width="280"
-                        HorizontalAlignment="Left" />
-                    <Button
-                        Name="btnDongYThem1CMT"
-                        Width="50"
-                        HorizontalAlignment="Right"
-                        Background="Gray"
-                        Click="btnDongYThem1CMT_Click"
-                        Content="V"
-                        FontSize="20"
-                        Foreground="Black" />
-                </Grid>-->
-
                 <!--  xóa 1 cmt để random đang chọn  -->
                 <Button
                     Name="btnXoaCmtRandom"
@@ -212,7 +191,8 @@
                     FontFamily="arial"
                     FontSize="17"
                     FontWeight="Bold"
-                    Foreground="#623b00">
+                    Foreground="#623b00"
+                    Click="btnAdd_Click">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon
@@ -240,7 +220,7 @@
                                         <TextBlock
                                             Margin="16,2,0,0"
                                             FontSize="17"
-                                            Text="{Binding}" />
+                                            Text="{Binding Id}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -252,7 +232,7 @@
                                         <TextBlock
                                             Margin="16,2,0,0"
                                             FontSize="17"
-                                            Text="{Binding}" />
+                                            Text="{Binding Link}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -268,7 +248,10 @@
                                                 BorderThickness="0"
                                                 Cursor="Hand"
                                                 FontFamily="Montserrat"
-                                                FontSize="16">
+                                                FontSize="16"
+                                                Name="btnEdit"
+                                                Click="btnEdit_Click"
+                                                Tag="{Binding}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
                                                         <Setter Property="Background" Value="#DBC4AD" />
@@ -303,7 +286,10 @@
                                                 BorderThickness="0"
                                                 Cursor="Hand"
                                                 FontFamily="Montserrat"
-                                                FontSize="16">
+                                                FontSize="16"
+                                                Name="btnDelete"
+                                                Click="btnDelete_Click"
+                                                Tag="{Binding}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
                                                         <Setter Property="Background" Value="#DBC4AD" />
