@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:IT008_Instagram"
         mc:Ignorable="d"
         FontSize="20"
-        Title="wdCrawlListPost" Height="540" Width="700">
+        Title="wdCrawlListPost" Height="540" Width="700"
+        WindowStartupLocation="CenterScreen">
     <Grid Name="grMain" Background="White">
         <!--  Chia layout  -->
         <Grid.RowDefinitions>
