@@ -2,7 +2,7 @@
 
 # [IGHelper: Instagram auto-tool]
 
-![IGHelper.png](https://postimg.cc/ZW2dB30Y)
+![IGHelper.png](https://github.com/dungtthe/IT008-Instagram/blob/master/logo.png?raw=true)
 
 > # Contributors:
 
