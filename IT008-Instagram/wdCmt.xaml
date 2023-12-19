@@ -229,16 +229,16 @@
         </Grid>
         <!--  List view  -->
         <Grid Grid.Row="3">
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
                 <ListView Name="lvListLink">
                     <ListView.View>
                         <GridView>
                             <!--  ID  -->
-                            <GridViewColumn Width="100" Header="STT">
+                            <GridViewColumn Width="90" Header="STT">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
-                                            Margin="16,5.5,0,0"
+                                            Margin="16,2,0,0"
                                             FontSize="17"
                                             Text="{Binding}" />
                                     </DataTemplate>
@@ -250,12 +250,97 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBlock
-                                            Margin="16,5.5,0,0"
+                                            Margin="16,2,0,0"
                                             FontSize="17"
                                             Text="{Binding}" />
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
+
+                            <GridViewColumn Width="Auto">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+
+                                            <!--  Nút sửa  -->
+                                            <Button
+                                                Margin="10,0,0,0"
+                                                BorderThickness="0"
+                                                Cursor="Hand"
+                                                FontFamily="Montserrat"
+                                                FontSize="16">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Background" Value="#DBC4AD" />
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#00e5ff" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border
+                                                            Width="25"
+                                                            Height="25"
+                                                            Background="{TemplateBinding Background}"
+                                                            CornerRadius="12">
+                                                            <materialDesign:PackIcon
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                DockPanel.Dock="Left"
+                                                                Foreground="#623b00"
+                                                                Kind="Pencil" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                            <!--  Nút xóa  -->
+                                            <Button
+                                                Margin="5,0,0,0"
+                                                BorderThickness="0"
+                                                Cursor="Hand"
+                                                FontFamily="Montserrat"
+                                                FontSize="16">
+                                                <Button.Style>
+                                                    <Style TargetType="Button">
+                                                        <Setter Property="Background" Value="#DBC4AD" />
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Setter Property="Background" Value="#ff6255" />
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </Button.Style>
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Border
+                                                            Width="25"
+                                                            Height="25"
+                                                            Background="{TemplateBinding Background}"
+                                                            CornerRadius="12">
+                                                            <materialDesign:PackIcon
+                                                                HorizontalAlignment="Center"
+                                                                VerticalAlignment="Center"
+                                                                DockPanel.Dock="Left"
+                                                                Foreground="#623b00"
+                                                                Kind="Delete" />
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+
+                                        </StackPanel>
+
+
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+
+
                         </GridView>
                     </ListView.View>
                 </ListView>
