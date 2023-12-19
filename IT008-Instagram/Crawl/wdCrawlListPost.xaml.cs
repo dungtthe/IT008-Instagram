@@ -338,5 +338,9 @@ namespace IT008_Instagram
             driver.Quit();
 
         }
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

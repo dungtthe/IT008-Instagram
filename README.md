@@ -2,7 +2,7 @@
 
 # [IGHelper: Instagram auto-tool]
 
-![IGHelper.png](https://postimg.cc/ZW2dB30Y)
+![IGHelper.png](https://github.com/dungtthe/IT008-Instagram/blob/master/logo.png?raw=true)
 
 > # Contributors:
 
@@ -27,9 +27,9 @@
 
 - **Instagram Post Crawling**: Dive deep into Instagram content with IGHelper's post crawling capability. Retrieve comprehensive data, including images, descriptions, titles, comments, number of likes, and posting times, either for a specific user or a given list of posts.
 
-> # How to use: Provide a way to install or clone/use.
+> # How to use:
 
-**Additional information**: 
+Very simple, just clone this repository, build and then run. If there are any problems, please check out our demo video (above).
 
 > # Code of conducting:
 

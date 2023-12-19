@@ -210,7 +210,7 @@
                         <ListView.View>
                             <GridView>
                                 <!--  STT  -->
-                                <GridViewColumn Width="Auto" Header="STT">
+                                <GridViewColumn Width="90" Header="STT">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock
@@ -222,7 +222,7 @@
                                 </GridViewColumn>
 
                                 <!--  Tên tài khoản  -->
-                                <GridViewColumn Width="Auto" Header="Tên tài khoản">
+                                <GridViewColumn Width="150" Header="Tên tài khoản">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock
@@ -234,7 +234,7 @@
                                 </GridViewColumn>
 
                                 <!--  Mật khẩu  -->
-                                <GridViewColumn Width="Auto" Header="Mật khẩu">
+                                <GridViewColumn Width="150" Header="Mật khẩu">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <TextBlock
@@ -245,20 +245,20 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
 
-                                <GridViewColumn Width="Auto">
+                                <GridViewColumn Width="200">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel Orientation="Horizontal">
 
                                                 <!--  Nút sửa  -->
                                                 <Button
+                                                    Name="btnEdit"
                                                     Margin="10,0,0,0"
                                                     BorderThickness="0"
+                                                    Click="btnEdit_Click"
                                                     Cursor="Hand"
                                                     FontFamily="Montserrat"
                                                     FontSize="16"
-                                                    Name="btnEdit"
-                                                    Click="btnEdit_Click"
                                                     Tag="{Binding}">
                                                     <Button.Style>
                                                         <Style TargetType="Button">
@@ -290,13 +290,13 @@
 
                                                 <!--  Nút xóa  -->
                                                 <Button
+                                                    Name="btnDelete"
                                                     Margin="5,0,0,0"
                                                     BorderThickness="0"
+                                                    Click="btnDelete_Click"
                                                     Cursor="Hand"
                                                     FontFamily="Montserrat"
                                                     FontSize="16"
-                                                    Name="btnDelete"
-                                                    Click="btnDelete_Click"
                                                     Tag="{Binding}">
                                                     <Button.Style>
                                                         <Style TargetType="Button">
