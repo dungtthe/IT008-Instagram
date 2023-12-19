@@ -216,7 +216,7 @@
                                             <TextBlock
                                                 Margin="16,2,0,0"
                                                 FontSize="17"
-                                                Text="{Binding}" />
+                                                Text="{Binding Id}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -228,7 +228,7 @@
                                             <TextBlock
                                                 Margin="16,2,0,0"
                                                 FontSize="17"
-                                                Text="{Binding}" />
+                                                Text="{Binding TaiKhoan}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -240,7 +240,7 @@
                                             <TextBlock
                                                 Margin="16,2,0,0"
                                                 FontSize="17"
-                                                Text="{Binding}" />
+                                                Text="{Binding MatKhau}" />
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -328,104 +328,6 @@
                     </ListView>
                 </ScrollViewer>
             </Grid>
-
-
-
-            <!--  popup phục vụ cho button thêm 1 acc clone  -->
-            <Popup
-                Name="puAddClone"
-                Placement="Center"
-                PlacementTarget="{Binding ElementName=btnAdd}">
-                <StackPanel
-                    Width="350"
-                    Height="200"
-                    Orientation="Horizontal">
-                    <Grid Width="250" Background="AntiqueWhite">
-                        <Canvas>
-                            <TextBlock Canvas.Top="60" Text="Tên tài khoản" />
-                            <TextBox
-                                Name="txtPUTenTK"
-                                Canvas.Left="75"
-                                Canvas.Top="55"
-                                Width="150"
-                                Height="25" />
-                            <TextBlock Canvas.Top="130" Text="Mật khẩu" />
-                            <TextBox
-                                Name="txtPUMK"
-                                Canvas.Left="75"
-                                Canvas.Top="120"
-                                Width="150"
-                                Height="25" />
-                        </Canvas>
-                    </Grid>
-                    <Grid Background="WhiteSmoke">
-                        <Button
-                            Name="btnPUDongY"
-                            Width="100"
-                            Height="25"
-                            Margin="0,25,0,100"
-                            HorizontalAlignment="Left"
-                            Click="btnPUDongY_Click"
-                            Content="Đồng ý" />
-                        <Button
-                            Name="btnPUThoat"
-                            Width="100"
-                            Height="25"
-                            Margin="0,100,0,25"
-                            HorizontalAlignment="Right"
-                            Click="btnPUThoat_Click"
-                            Content="Thoát" />
-                    </Grid>
-                </StackPanel>
-            </Popup>
-
-            <!--  popup phục vụ cho button sửa 1 acc clone  -->
-            <Popup
-                Name="puEditClone"
-                Placement="Center"
-                PlacementTarget="{Binding ElementName=btnEdit}">
-                <StackPanel
-                    Width="350"
-                    Height="200"
-                    Orientation="Horizontal">
-                    <Grid Width="250" Background="AntiqueWhite">
-                        <Canvas>
-                            <TextBlock Canvas.Top="60" Text="Tên tài khoản" />
-                            <TextBox
-                                Name="txtPUTenTK_Edit"
-                                Canvas.Left="75"
-                                Canvas.Top="55"
-                                Width="150"
-                                Height="25" />
-                            <TextBlock Canvas.Top="130" Text="Mật khẩu" />
-                            <TextBox
-                                Name="txtPUMK_Edit"
-                                Canvas.Left="75"
-                                Canvas.Top="120"
-                                Width="150"
-                                Height="25" />
-                        </Canvas>
-                    </Grid>
-                    <Grid Background="WhiteSmoke">
-                        <Button
-                            Name="btnPUDongY_Edit"
-                            Width="100"
-                            Height="25"
-                            Margin="0,25,0,100"
-                            HorizontalAlignment="Left"
-                            Click="btnPUDongY_Edit_Click"
-                            Content="Đồng ý" />
-                        <Button
-                            Name="btnPUThoat_Edit"
-                            Width="100"
-                            Height="25"
-                            Margin="0,100,0,25"
-                            HorizontalAlignment="Right"
-                            Click="btnPUThoat_Edit_Click"
-                            Content="Thoát" />
-                    </Grid>
-                </StackPanel>
-            </Popup>
         </Grid>
     </Border>
 

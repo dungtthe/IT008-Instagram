@@ -60,6 +60,7 @@
                     FontSize="14"
                     Text="Tên tài khoản" />
                 <TextBox
+                    Name="txtUsername"
                     Grid.Column="1"
                     Width="150"
                     Height="30"
@@ -91,7 +92,8 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     VerticalContentAlignment="Center"
-                    FontSize="15" />
+                    FontSize="15" 
+                    Name="txtPassword"/>
             </Grid>
             <!--  Phần hủy và đồng ý  -->
             <Grid Grid.Row="3">
@@ -101,7 +103,9 @@
                     materialDesign:ButtonAssist.CornerRadius="20"
                     Background="SaddleBrown"
                     Command="{Binding acceptEditCommand}"
-                    Content="Đồng ý" />
+                    Content="Đồng ý" 
+                    Name="btnDongY"
+                    Click="btnDongY_Click"/>
 
                 <Button
                     Width="78"
@@ -109,7 +113,9 @@
                     materialDesign:ButtonAssist.CornerRadius="20"
                     Background="red"
                     Command="{Binding quitCommand}"
-                    Content="Hủy" />
+                    Content="Hủy" 
+                    Name="btnHuy"
+                    Click="btnHuy_Click"/>
             </Grid>
         </Grid>
     </Border>
