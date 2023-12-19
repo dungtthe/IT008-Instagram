@@ -150,7 +150,7 @@
                     Margin="10,5,0,0"
                     HorizontalAlignment="Left"
                     materialDesign:ButtonAssist.CornerRadius="20"
-                    Background="Red"
+                    Background="SaddleBrown"
                     Click="btnXoaCmtRandom_Click"
                     Content="Xóa"
                     FontSize="14" />
@@ -188,11 +188,11 @@
                     VerticalAlignment="Top"
                     materialDesign:ButtonAssist.CornerRadius="10"
                     Background="#DFD7BF"
+                    Click="btnAdd_Click"
                     FontFamily="arial"
                     FontSize="17"
                     FontWeight="Bold"
-                    Foreground="#623b00"
-                    Click="btnAdd_Click">
+                    Foreground="#623b00">
                     <Button.Content>
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon
@@ -244,13 +244,13 @@
 
                                             <!--  Nút sửa  -->
                                             <Button
+                                                Name="btnEdit"
                                                 Margin="10,0,0,0"
                                                 BorderThickness="0"
+                                                Click="btnEdit_Click"
                                                 Cursor="Hand"
                                                 FontFamily="Montserrat"
                                                 FontSize="16"
-                                                Name="btnEdit"
-                                                Click="btnEdit_Click"
                                                 Tag="{Binding}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
@@ -282,13 +282,13 @@
 
                                             <!--  Nút xóa  -->
                                             <Button
+                                                Name="btnDelete"
                                                 Margin="5,0,0,0"
                                                 BorderThickness="0"
+                                                Click="btnDelete_Click"
                                                 Cursor="Hand"
                                                 FontFamily="Montserrat"
                                                 FontSize="16"
-                                                Name="btnDelete"
-                                                Click="btnDelete_Click"
                                                 Tag="{Binding}">
                                                 <Button.Style>
                                                     <Style TargetType="Button">
@@ -341,7 +341,7 @@
                 Margin="10,0,0,0"
                 HorizontalAlignment="Left"
                 materialDesign:ButtonAssist.CornerRadius="20"
-                Background="Red"
+                Background="SaddleBrown"
                 Click="btnQuaylai_Click"
                 Content="Quay lại" />
             <!--  Nút chạy  -->

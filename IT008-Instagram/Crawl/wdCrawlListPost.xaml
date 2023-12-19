@@ -160,24 +160,24 @@
                 VerticalAlignment="Center"
                 FontSize="15"
                 FontWeight="Bold"
-                Text="Destination folder:" />
+                Text="Nơi lưu trữ dữ liệu:" />
             <TextBox
-                Width="300"
+                Width="250"
                 Height="30"
-                Margin="2,5,0,0"
+                Margin="10,5,0,0"
                 Text="{Binding SavedPath}" />
             <Button
                 x:Name="btnChoosePath"
                 Width="100"
                 Height="30"
-                Margin="10,15,0,0"
+                Margin="22,15,0,0"
                 Padding="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Top"
                 materialDesign:ButtonAssist.CornerRadius="10"
                 Background="#DFD7BF"
                 Click="btnChoosePath_Click"
-                Content="Choose Path"
+                Content="Chọn folder"
                 FontFamily="arial"
                 FontSize="15"
                 FontWeight="Bold"
@@ -200,7 +200,7 @@
                 VerticalAlignment="Top"
                 materialDesign:ButtonAssist.CornerRadius="10"
                 Background="#DFD7BF"
-                Content="Delete All"
+                Content="Xóa tất cả"
                 FontFamily="arial"
                 FontSize="15"
                 FontWeight="Bold"
@@ -238,7 +238,7 @@
             Margin="0,0,450,10"
             VerticalAlignment="Bottom"
             materialDesign:ButtonAssist.CornerRadius="20"
-            Background="Red"
+            Background="SaddleBrown"
             Click="btnBack_Click"
             Content="Quay lại" />
 

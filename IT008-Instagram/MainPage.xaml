@@ -206,7 +206,7 @@
             <!--  Vùng acc clone  -->
             <Grid Grid.Row="3">
                 <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <ListView Name="lvDSUser" d:ItemsSource="{d:SampleData ItemCount=5}">
+                    <ListView Name="lvDSUser">
                         <ListView.View>
                             <GridView>
                                 <!--  STT  -->
@@ -252,13 +252,13 @@
 
                                                 <!--  Nút sửa  -->
                                                 <Button
+                                                    Name="btnEdit"
                                                     Margin="10,0,0,0"
                                                     BorderThickness="0"
+                                                    Click="btnEdit_Click"
                                                     Cursor="Hand"
                                                     FontFamily="Montserrat"
                                                     FontSize="16"
-                                                    Name="btnEdit"
-                                                    Click="btnEdit_Click"
                                                     Tag="{Binding}">
                                                     <Button.Style>
                                                         <Style TargetType="Button">
@@ -290,13 +290,13 @@
 
                                                 <!--  Nút xóa  -->
                                                 <Button
+                                                    Name="btnDelete"
                                                     Margin="5,0,0,0"
                                                     BorderThickness="0"
+                                                    Click="btnDelete_Click"
                                                     Cursor="Hand"
                                                     FontFamily="Montserrat"
                                                     FontSize="16"
-                                                    Name="btnDelete"
-                                                    Click="btnDelete_Click"
                                                     Tag="{Binding}">
                                                     <Button.Style>
                                                         <Style TargetType="Button">
