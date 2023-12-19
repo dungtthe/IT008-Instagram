@@ -214,25 +214,21 @@ namespace IT008_Instagram
                         {
 
                             // _aamj _acvz _acnc _acng
-                            var numberOfImageElement1 = driver.FindElement(By.CssSelector("div[class='_aamj _acvz _acnc _acng']"));
-                            var numberOfImageElement2 = numberOfImageElement1.FindElements(By.XPath("*"));
-
-                            int numberOfImage = numberOfImageElement2.Count;
-
-                            for (int i = 0; i < numberOfImage; i++)
+                            int numberOfImage = 1;
+                            try
                             {
-                                int nchild = 3;
-                                ++imgCount;
-                                if (i == 0) nchild = 2;
-                                var zoned = driver.FindElement(By.ClassName("_aamn"));
-
-                                IWebElement imageElementli;
-                                if (i == numberOfImage - 1)
-                                {
-                                   imageElementli = zoned.FindElement(By.CssSelector($"ul[class='_acay'] > li:last-child"));
-                                }
-                                else imageElementli = zoned.FindElement(By.CssSelector($"ul[class='_acay'] > li:nth-child({nchild})"));
-                                var imageElement = imageElementli.FindElement(By.TagName("img"));
+                                var numberOfImageElement1 = driver.FindElement(By.CssSelector("div[class='_aamj _acvz _acnc _acng']"));
+                                var numberOfImageElement2 = numberOfImageElement1.FindElements(By.XPath("*"));
+                                numberOfImage = numberOfImageElement2.Count;
+                            }
+                            catch 
+                            { 
+                            }
+                            
+                            if (numberOfImage == 1)
+                            {
+                                var imageElementD = driver.FindElement(By.CssSelector("div[class='_aagu _aato']"));
+                                var imageElement = imageElementD.FindElement(By.TagName("img"));
                                 string imgDescription = imageElement.GetAttribute("alt");
                                 string imgSource = imageElement.GetAttribute("src");
                                 //download and write img
@@ -240,19 +236,53 @@ namespace IT008_Instagram
                                 {
                                     using (var s = client.GetStreamAsync(imgSource))
                                     {
-                                        using (var fs = new FileStream(System.IO.Path.Combine(postPath, $"img{imgCount}.jpg"), FileMode.OpenOrCreate))
+                                        using (var fs = new FileStream(System.IO.Path.Combine(postPath, $"img{numberOfImage}.jpg"), FileMode.OpenOrCreate))
                                         {
                                             s.Result.CopyTo(fs);
                                         }
                                     }
                                 }
-                                sw.WriteLine($"{imgCount}\t{imgSource}\t{imgDescription}");
-
-                                //navigate to next img
-                                var btnNext = driver.FindElement(By.CssSelector("button[aria-label='Next']"));
-                                btnNext.Click();
-                                Thread.Sleep(1000);
+                                sw.WriteLine($"{numberOfImage}\t{imgSource}\t{imgDescription}");
                             }
+                             
+                            if (numberOfImage > 1)
+                            {
+                                    for (int i = 0; i < numberOfImage; i++)
+                                    {
+                                        int nchild = 3;
+                                        ++imgCount;
+                                        if (i == 0) nchild = 2;
+                                        var zoned = driver.FindElement(By.ClassName("_aamn"));
+
+                                        IWebElement imageElementli;
+                                        if (i == numberOfImage - 1)
+                                        {
+                                            imageElementli = zoned.FindElement(By.CssSelector($"ul[class='_acay'] > li:last-child"));
+                                        }
+                                        else imageElementli = zoned.FindElement(By.CssSelector($"ul[class='_acay'] > li:nth-child({nchild})"));
+                                        var imageElement = imageElementli.FindElement(By.TagName("img"));
+                                        string imgDescription = imageElement.GetAttribute("alt");
+                                        string imgSource = imageElement.GetAttribute("src");
+                                        //download and write img
+                                        using (var client = new HttpClient())
+                                        {
+                                            using (var s = client.GetStreamAsync(imgSource))
+                                            {
+                                                using (var fs = new FileStream(System.IO.Path.Combine(postPath, $"img{imgCount}.jpg"), FileMode.OpenOrCreate))
+                                                {
+                                                    s.Result.CopyTo(fs);
+                                                }
+                                            }
+                                        }
+                                        sw.WriteLine($"{imgCount}\t{imgSource}\t{imgDescription}");
+
+                                        //navigate to next img
+                                        var btnNext = driver.FindElement(By.CssSelector("button[aria-label='Next']"));
+                                        btnNext.Click();
+                                        Thread.Sleep(1000);
+                                    }
+                                }
+                            
                            
                             
                         }
