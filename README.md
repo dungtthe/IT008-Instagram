@@ -2,15 +2,17 @@
 
 # [IGHelper: Instagram auto-tool]
 
+![IGHelper.png](https://postimg.cc/ZW2dB30Y)
+
 > # Contributors:
 
-- Leader: Trần Quỳnh Thy - 22521461 - [Github](https://github.com/tqthy)
-- Member: Tiền Thế Dũng - 22520291 - [Github](https://github.com/dungtthe)
-- Member: Hồ Tiến Vũ Bình - 22520129 - [Github](https://github.com/VuBinhVL)
+- Leader: Trần Quỳnh Thy - 22521461 - [GitHub](https://github.com/tqthy)
+- Member: Tiền Thế Dũng - 22520291 - [GitHub](https://github.com/dungtthe)
+- Member: Hồ Tiến Vũ Bình - 22520129 - [GitHub](https://github.com/VuBinhVL)
 
 > # Supervisors:
 
-- Vũ Tuấn Hải - [Github](https://github.com/vutuanhai237)
+- Vũ Tuấn Hải - [GitHub](https://github.com/vutuanhai237)
 
 > # Video demo: Link to youtube video
 
