@@ -37,7 +37,7 @@ namespace IT008_Instagram
         public void loadData()
         {
             lvDSlinkFollow.ItemsSource = null;
-            DStaiKhoanFollows = QLKhachHangFollow.getDaTa();
+            DStaiKhoanFollows = QLKhachHang.getDaTaKHFollow();
             lvDSlinkFollow.ItemsSource = DStaiKhoanFollows;
         }
 
@@ -288,20 +288,7 @@ namespace IT008_Instagram
             driver.Navigate();
             int count0 = 0;
             int maxtime = 10;
-            //while (count0 < maxtime)
-            //{
-            //    try
-            //    {
-            //        driver.Navigate();
-            //        break;
-            //    }
-            //     catch
-            //    {
-            //        count0++;
-            //        Thread.Sleep(1000);
-            //    }               
-            //}
-
+    
             if (count0 == 10)
             {
                 MessageBox.Show("Thời gian chờ quá lâu,chương trình tự động dừng");
@@ -316,13 +303,6 @@ namespace IT008_Instagram
             {
                 try
                 {
-                    //var btnfl = driver.FindElement(By.XPath("//*[@id=\"mount_0_0_vX\"]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button/div/div[1]"));
-                    //btnfl.Click();
-                    //break;
-
-                    //test xpath khasc
-                    //var btnFl = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/div/div/div[1]/div[1]/div[2]/div[2]/section/main/div/header/section/div[1]/div[2]/div/div[1]/button"));
-
                     var btnFl = driver.FindElement(By.CssSelector("._ap3a"));
                     btnFl.Click();
                     break;

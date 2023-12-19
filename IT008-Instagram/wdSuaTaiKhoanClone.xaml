@@ -66,7 +66,8 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     VerticalContentAlignment="Center"
-                    FontSize="15" />
+                    FontSize="15" 
+                    Name="txtUsername"/>
             </Grid>
 
             <!--  Mật khẩu  -->
@@ -90,7 +91,8 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     VerticalContentAlignment="Center"
-                    FontSize="15" />
+                    FontSize="15" 
+                    Name="txtPassword"/>
             </Grid>
             <!--  Phần hủy và đồng ý  -->
             <Grid Grid.Row="3">
@@ -99,16 +101,18 @@
                     Margin="300,4,12,4"
                     materialDesign:ButtonAssist.CornerRadius="20"
                     Background="SaddleBrown"
-                    Command="{Binding acceptEditCommand}"
-                    Content="Đồng ý" />
+                    Content="Đồng ý" 
+                    Name="btnDongY"
+                    Click="btnDongY_Click"/>
 
                 <Button
                     Width="78"
                     Margin="200,4,92,4"
                     materialDesign:ButtonAssist.CornerRadius="20"
                     Background="red"
-                    Command="{Binding quitCommand}"
-                    Content="Hủy" />
+                    Content="Hủy" 
+                    Name="btnHuy"
+                    Click="btnHuy_Click"/>
             </Grid>
         </Grid>
     </Border>
