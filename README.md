@@ -27,9 +27,9 @@
 
 - **Instagram Post Crawling**: Dive deep into Instagram content with IGHelper's post crawling capability. Retrieve comprehensive data, including images, descriptions, titles, comments, number of likes, and posting times, either for a specific user or a given list of posts.
 
-> # How to use: Provide a way to install or clone/use.
+> # How to use:
 
-**Additional information**: 
+Very simple, just clone this repository, build and run.
 
 > # Code of conducting:
 
