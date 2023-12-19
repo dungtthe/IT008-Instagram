@@ -159,6 +159,7 @@
                                             <TextBlock
                                                 FontSize="15"
                                                 Text="{Binding MatKhau}"
+                                                Foreground="LightGray"
                                                 TextAlignment="Center" />
                                         </Grid>
                                     </Grid>

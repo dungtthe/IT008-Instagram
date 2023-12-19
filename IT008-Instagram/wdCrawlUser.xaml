@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:IT008_Instagram"
         mc:Ignorable="d"
-        Title="wdCrawlUser"
+        Title="Crawl User Post"
         Width="700"
         Height="540"
         Background="White"
