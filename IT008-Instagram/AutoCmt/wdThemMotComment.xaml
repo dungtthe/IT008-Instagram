@@ -1,0 +1,93 @@
+﻿<Window
+    x:Class="IT008_Instagram.wdThemMotComment"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:IT008_Instagram"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="400"
+    Height="200"
+    AllowsTransparency="True"
+    Background="Transparent"
+    FontFamily="{DynamicResource MaterialDesignFont}"
+    TextElement.FontSize="13"
+    TextElement.FontWeight="Regular"
+    TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+    TextOptions.TextFormattingMode="Ideal"
+    TextOptions.TextRenderingMode="Auto"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None"
+    mc:Ignorable="d">
+    <Border
+        Background="White"
+        BorderBrush="Brown"
+        BorderThickness="1"
+        CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="100" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Border
+                Background="#DFD7BF"
+                BorderBrush="Black"
+                BorderThickness="0,0,0,1"
+                CornerRadius="10,10,0,0">
+                <TextBlock
+                    Margin="10,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    FontSize="20"
+                    FontWeight="SemiBold"
+                    Text="Thêm khách hàng" />
+            </Border>
+
+            <!--  Comment  -->
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Height="20"
+                    Margin="0,0,5,0"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    FontSize="14"
+                    Text="Comment" />
+                <TextBox
+                    Grid.Column="1"
+                    Width="180"
+                    Height="30"
+                    Margin="5,0,0,3"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    FontSize="15" 
+                    Name="txtThemCmtRandom"/>
+            </Grid>
+            <!--  Phần hủy và đồng ý  -->
+            <Grid Grid.Row="3">
+                <Button
+                    Width="78"
+                    Margin="300,4,12,4"
+                    materialDesign:ButtonAssist.CornerRadius="20"
+                    Background="SaddleBrown"
+                    Content="Đồng ý" 
+                    Name="btnDongY"
+                    Click="btnDongY_Click"/>
+
+                <Button
+                    Width="78"
+                    Margin="200,4,92,4"
+                    materialDesign:ButtonAssist.CornerRadius="20"
+                    Background="red"
+                    Content="Hủy" 
+                    Name="btnHuy"
+                    Click="btnHuy_Click"/>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

@@ -13,7 +13,6 @@ namespace IT008_Instagram
     {
         public static ObservableCollection<User> getDaTa()
         {
-            //new User("TAI KHOAN 2","7891010")
             ObservableCollection < User > listUser= new ObservableCollection<User>();
 
             using (FileStream fStream = new FileStream("listUser.txt", FileMode.OpenOrCreate, FileAccess.Read))
@@ -21,11 +20,13 @@ namespace IT008_Instagram
                 using(StreamReader sr = new StreamReader(fStream))
                 {
                     string line;
+                    int id = 1;
                     while ((line = sr.ReadLine()) != null)
                     {
                         string[] tkmk = line.Split('|');
-                        User user =new User(tkmk[0], tkmk[1]);
+                        User user =new User(id,tkmk[0], tkmk[1]);
                         listUser.Add(user);
+                        id++;
                     }
                 }
             }

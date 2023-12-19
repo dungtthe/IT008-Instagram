@@ -11,8 +11,22 @@ namespace IT008_Instagram
 {
     public class User : INotifyPropertyChanged
     {
+        private int id;
         private string taiKhoan;
         private string matKhau;
+
+        public int Id
+        {
+            get => id;
+            set
+            {
+                if(id != value)
+                {
+                    id = value;
+                    OnPropertyChanged(nameof(Id));
+                }
+            }
+        }
         public string TaiKhoan
         {
             get => taiKhoan;
@@ -22,7 +36,7 @@ namespace IT008_Instagram
                 if (taiKhoan != value)
                 {
                     taiKhoan = value;
-                    OnPropertyChanged(nameof(taiKhoan));
+                    OnPropertyChanged(nameof(TaiKhoan));
                 }
             }
         }
@@ -35,13 +49,14 @@ namespace IT008_Instagram
                 if (matKhau != value)
                 {
                     matKhau = value;
-                    OnPropertyChanged(nameof(matKhau));
+                    OnPropertyChanged(nameof(MatKhau));
                 }
             }
         }
 
-        public User(string tk,string mk)
+        public User(int id,string tk,string mk)
         {
+            this.id = id;
             taiKhoan= tk;
             matKhau= mk;
         }
