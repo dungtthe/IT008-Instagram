@@ -305,5 +305,9 @@ namespace IT008_Instagram
             }
             
         }
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
