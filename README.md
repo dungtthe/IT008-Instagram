@@ -29,7 +29,7 @@
 
 > # How to use:
 
-Very simple, just clone this repository, build and run.
+Very simple, just clone this repository, build and then run. If there are any problems, please check out our demo video (above).
 
 > # Code of conducting:
 
