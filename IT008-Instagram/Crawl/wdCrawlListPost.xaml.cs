@@ -151,15 +151,16 @@ namespace IT008_Instagram
 
                 }
 
+                IList<IWebElement> elements = driver.FindElements(By.ClassName("_a9zr"));
+                // body > div.x1n2onr6.xzkaem6 > div.x9f619.x1n2onr6.x1ja2u2z > div > div.x1uvtmcs.x4k7w5x.x1h91t0o.x1beo9mf.xaigb6o.x12ejxvf.x3igimt.xarpa2k.xedcshv.x1lytzrv.x1t2pt76.x7ja8zs.x1n2onr6.x1qrby5j.x1jfb8zj > div > div > div > div > div.xb88tzc.xw2csxc.x1odjw0f.x5fp0pe.x1qjc9v5.xjbqb8w.x1lcm9me.x1yr5g0i.xrt01vj.x10y3i5r.xr1yuqi.xkrivgy.x4ii5y1.x1gryazu.x15h9jz8.x47corl.xh8yej3.xir0mxb.x1juhsu6 > div > article > div > div._ae65 > div > div > div._ae2s._ae3v._ae3w > div._ae5q._akdn._ae5r._ae5s > ul > div:nth-child(3) > div > div
 
-                IList<IWebElement> elements = driver.FindElements(By.CssSelector("div[class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1iyjqo2 x2lwn1j xeuugli xdt5ytf xqjyukv x1qjc9v5 x1oa3qoh x1nhvcw1']"));
-
+                //var elementParent = driver.FindElement(By.CssSelector("div > div > div.x9f619.x1n2onr6.x1ja2u2z > div > div > div.x78zum5.xdt5ytf.x1t2pt76.x1n2onr6.x1ja2u2z.x10cihs4 > div.x9f619.xvbhtw8.x78zum5.x168nmei.x13lgxp2.x5pf9jr.xo71vjh.x1uhb9sk.x1plvlek.xryxfnj.x1c4vz4f.x2lah0s.x1q0g3np.xqjyukv.x1qjc9v5.x1oa3qoh.x1qughib > div.x1gryazu.xh8yej3.x10o80wk.x14k21rp.x17snn68.x6osk4m.x1porb0y > section > main > div > div.x6s0dn4.x78zum5.xdt5ytf.xdj266r.xkrivgy.xat24cr.x1gryazu.x1n2onr6.xh8yej3 > div > div.x4h1yfo > div > div.x5yr21d.xw2csxc.x1odjw0f.x1n2onr6 > div > div.x78zum5.xdt5ytf.x1iyjqo2"));
+                //var elementCount = elementParent.FindElements(By.XPath("*"));
                 //lay comments
 
                 int numberOfComments = elements.Count;
                 if (numberOfComments <= 1) numberOfComments = 0;
                 else numberOfComments--;
-
                 // lay thoi gian post
 
                 var timeElementTime = driver.FindElement(By.ClassName("_aaqe"));
@@ -176,7 +177,7 @@ namespace IT008_Instagram
                 string content = "";
                 try
                 {
-                    var contentElement = driver.FindElement(By.CssSelector("span[class='x193iq5w xeuugli x1fj9vlw x13faqbe x1vvkbs xt0psk2 x1i0vuye xvs91rp xo1l8bm x5n08af x10wh9bi x1wdrske x8viiok x18hxmgj']"));
+                    var contentElement = driver.FindElement(By.CssSelector("div > div._a9zr > div._a9zs > h1"));
                     content = contentElement.Text;
                 }
                 catch
@@ -218,11 +219,11 @@ namespace IT008_Instagram
                     //x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1cy8zhl x1oa3qoh x1nhvcw1
                     //x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1cy8zhl x1oa3qoh x1nhvcw1
 
-                    var usernameElement = element.FindElement(By.CssSelector("span[class='_ap3a _aaco _aacw _aacx _aad7 _aade']"));
+                    var usernameElement = element.FindElement(By.CssSelector("div._a9zr > h3 > div > div > div > a"));
                     string username = usernameElement.Text;
-                    var commentElementD = element.FindElement(By.CssSelector("div[class='x9f619 xjbqb8w x78zum5 x168nmei x13lgxp2 x5pf9jr xo71vjh x1uhb9sk x1plvlek xryxfnj x1c4vz4f x2lah0s xdt5ytf xqjyukv x1cy8zhl x1oa3qoh x1nhvcw1']"));
-                    var commentElementS = commentElementD.FindElement(By.TagName("span"));
-                    string comment = commentElementS.Text;
+                    var commentElementD = element.FindElement(By.CssSelector("div._a9zr > div._a9zs > span"));
+                    //var commentElementS = commentElementD.FindElement(By.TagName("span"));
+                    string comment = commentElementD.Text;
                     using (FileStream fStream = new FileStream(System.IO.Path.Combine(postPath, "comments.tsv"), FileMode.Append, FileAccess.Write))
                     {
                         using (StreamWriter sw = new StreamWriter(fStream))
